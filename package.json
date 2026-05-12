@@ -2,7 +2,12 @@
   "name": "@library-hub/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve library-portal",
+    "build": "nx build library-portal",
+    "test": "nx run-many -t test --all",
+    "lint": "nx run-many -t lint --all"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~21.2.0",
