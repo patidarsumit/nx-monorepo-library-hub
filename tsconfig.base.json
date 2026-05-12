@@ -13,7 +13,33 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "paths": {}
+    "paths": {
+      "@library-hub/shared-ui": ["./libs/shared/ui/src/index.ts"],
+      "@library-hub/shared-utils": ["./libs/shared/utils/src/index.ts"],
+      "@library-hub/shared-auth": ["./libs/shared/auth/src/index.ts"],
+      "@library-hub/books-feature-list": [
+        "./libs/books/feature-list/src/index.ts"
+      ],
+      "@library-hub/books-feature-detail": [
+        "./libs/books/feature-detail/src/index.ts"
+      ],
+      "@library-hub/books-data-access": [
+        "./libs/books/data-access/src/index.ts"
+      ],
+      "@library-hub/books-ui": ["./libs/books/ui/src/index.ts"],
+      "@library-hub/borrowing-feature-requests": [
+        "./libs/borrowing/feature-requests/src/index.ts"
+      ],
+      "@library-hub/borrowing-data-access": [
+        "./libs/borrowing/data-access/src/index.ts"
+      ],
+      "@library-hub/reports-feature-dashboard": [
+        "./libs/reports/feature-dashboard/src/index.ts"
+      ],
+      "@library-hub/reports-data-access": [
+        "./libs/reports/data-access/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
