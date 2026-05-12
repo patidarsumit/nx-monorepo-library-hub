@@ -1,0 +1,11 @@
+<span
+  class="ui-avatar"
+  [class.ui-avatar--sm]="size() === 'sm'"
+  [class.ui-avatar--lg]="size() === 'lg'"
+>
+  @if (src()) {
+    <img [src]="src()" [alt]="alt()" />
+  } @else {
+    <span aria-hidden="true">{{ initials() }}</span>
+  }
+</span>

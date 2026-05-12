@@ -1,0 +1,18 @@
+<section
+  class="ui-section"
+  [class.ui-section--sm]="spacing() === 'sm'"
+  [class.ui-section--lg]="spacing() === 'lg'"
+>
+  @if (title() || description()) {
+    <header class="ui-section__header">
+      @if (title()) {
+        <h2>{{ title() }}</h2>
+      }
+      @if (description()) {
+        <p>{{ description() }}</p>
+      }
+    </header>
+  }
+
+  <ng-content />
+</section>

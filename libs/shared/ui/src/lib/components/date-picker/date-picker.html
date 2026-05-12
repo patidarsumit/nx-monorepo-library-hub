@@ -1,0 +1,18 @@
+<div class="ui-control">
+  @if (label()) {
+    <label class="ui-control__label" [for]="controlId()">{{ label() }}</label>
+  }
+
+  @if (field(); as controlField) {
+    @if (!controlField().hidden()) {
+      <input
+        class="ui-input"
+        [id]="controlId()"
+        type="date"
+        [formField]="controlField"
+      />
+    }
+  } @else {
+    <input class="ui-input" [id]="controlId()" type="date" />
+  }
+</div>

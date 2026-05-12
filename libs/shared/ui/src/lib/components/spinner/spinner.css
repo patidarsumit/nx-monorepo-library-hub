@@ -1,0 +1,29 @@
+:host {
+  display: inline-flex;
+}
+
+.ui-spinner {
+  animation: ui-spinner-spin 760ms linear infinite;
+  border: 2px solid var(--border-subtle, #d2d2d7);
+  border-radius: 50%;
+  border-top-color: var(--color-primary, #0071e3);
+  display: inline-flex;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.ui-spinner--sm {
+  height: 1rem;
+  width: 1rem;
+}
+
+.ui-spinner--lg {
+  height: 2rem;
+  width: 2rem;
+}
+
+@keyframes ui-spinner-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

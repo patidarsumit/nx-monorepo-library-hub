@@ -1,0 +1,9 @@
+<span
+  class="ui-badge"
+  [class.ui-badge--success]="tone() === 'success'"
+  [class.ui-badge--warning]="tone() === 'warning'"
+  [class.ui-badge--danger]="tone() === 'danger'"
+  [class.ui-badge--info]="tone() === 'info'"
+>
+  <ng-content />
+</span>

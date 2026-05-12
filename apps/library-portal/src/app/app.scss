@@ -1,0 +1,16 @@
+.smoke-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.smoke-stack {
+  display: grid;
+  gap: 0.875rem;
+}
+
+@media (width <= 720px) {
+  .smoke-grid {
+    grid-template-columns: 1fr;
+  }
+}

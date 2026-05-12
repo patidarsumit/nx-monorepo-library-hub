@@ -1,0 +1,15 @@
+@if (field(); as controlField) {
+  @if (!controlField().hidden()) {
+    <label class="ui-switch" [for]="controlId()">
+      <input [id]="controlId()" type="checkbox" [formField]="controlField" />
+      <span aria-hidden="true"></span>
+      {{ label() }}
+    </label>
+  }
+} @else {
+  <label class="ui-switch" [for]="controlId()">
+    <input [id]="controlId()" type="checkbox" />
+    <span aria-hidden="true"></span>
+    {{ label() }}
+  </label>
+}

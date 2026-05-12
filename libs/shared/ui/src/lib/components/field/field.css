@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.ui-field {
+  display: grid;
+  gap: 0.375rem;
+}
+
+.ui-field__label {
+  color: var(--text-primary, #1d1d1f);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.ui-field__help {
+  color: var(--text-secondary, #6e6e73);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+.ui-field__error {
+  color: var(--color-danger, #d92d20);
+  font-size: 0.8125rem;
+  margin: 0;
+}

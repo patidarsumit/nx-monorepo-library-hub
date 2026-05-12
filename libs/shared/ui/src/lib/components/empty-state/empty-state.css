@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.ui-empty-state {
+  align-items: center;
+  color: var(--text-secondary, #6e6e73);
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.ui-empty-state h2 {
+  color: var(--text-primary, #1d1d1f);
+  margin: 0;
+}
+
+.ui-empty-state p {
+  margin: 0;
+  max-width: 34rem;
+}
+
+.ui-empty-state__icon {
+  color: var(--color-primary, #0071e3);
+  min-height: 2rem;
+}
+
+.ui-empty-state__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}

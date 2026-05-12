@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.ui-section {
+  display: grid;
+  gap: 1rem;
+  padding-block: 1.5rem;
+}
+
+.ui-section--sm {
+  padding-block: 1rem;
+}
+
+.ui-section--lg {
+  padding-block: 2rem;
+}
+
+.ui-section__header {
+  display: grid;
+  gap: 0.375rem;
+}
+
+.ui-section__header h2 {
+  color: var(--text-primary, #1d1d1f);
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.ui-section__header p {
+  color: var(--text-secondary, #6e6e73);
+  margin: 0;
+}

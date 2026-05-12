@@ -1,0 +1,18 @@
+@if (field(); as controlField) {
+  @if (!controlField().hidden()) {
+    <input
+      class="ui-search-input"
+      [id]="controlId()"
+      type="search"
+      [formField]="controlField"
+      [attr.placeholder]="placeholder()"
+    />
+  }
+} @else {
+  <input
+    class="ui-search-input"
+    [id]="controlId()"
+    type="search"
+    [attr.placeholder]="placeholder()"
+  />
+}

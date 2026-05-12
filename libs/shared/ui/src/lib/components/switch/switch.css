@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.ui-switch {
+  align-items: center;
+  color: var(--text-primary, #1d1d1f);
+  display: inline-flex;
+  gap: 0.625rem;
+}
+
+.ui-switch input {
+  position: absolute;
+  opacity: 0;
+}
+
+.ui-switch span {
+  background: var(--border-subtle, #d2d2d7);
+  border-radius: var(--radius-pill, 999px);
+  display: inline-flex;
+  height: 1.5rem;
+  position: relative;
+  width: 2.75rem;
+}
+
+.ui-switch span::after {
+  background: var(--surface-base, #ffffff);
+  border-radius: 50%;
+  content: '';
+  height: 1.125rem;
+  left: 0.1875rem;
+  position: absolute;
+  top: 0.1875rem;
+  transition: transform 160ms ease;
+  width: 1.125rem;
+}
+
+.ui-switch input:checked + span {
+  background: var(--color-primary, #0071e3);
+}
+
+.ui-switch input:checked + span::after {
+  transform: translateX(1.25rem);
+}
+
+.ui-switch input:focus-visible + span {
+  outline: 3px solid var(--focus-ring, rgba(0, 113, 227, 0.35));
+  outline-offset: 2px;
+}

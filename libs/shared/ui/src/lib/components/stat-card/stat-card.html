@@ -1,0 +1,7 @@
+<article class="ui-stat-card">
+  <p class="ui-stat-card__label">{{ label() }}</p>
+  <strong class="ui-stat-card__value">{{ value() }}</strong>
+  @if (hint()) {
+    <p class="ui-stat-card__hint">{{ hint() }}</p>
+  }
+</article>

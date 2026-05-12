@@ -207,7 +207,7 @@ npx nx g @nx/angular:component \
 
 ```bash
 npx nx g @nx/angular:component \
-  libs/shared/ui/src/lib/components/header \
+  libs/shared/ui/src/lib/components/header/header \
   --export
 ```
 
@@ -215,7 +215,7 @@ npx nx g @nx/angular:component \
 
 ```bash
 npx nx g @nx/angular:component \
-  libs/shared/ui/src/lib/components/sidebar \
+  libs/shared/ui/src/lib/components/sidebar/sidebar \
   --export
 ```
 
@@ -223,7 +223,7 @@ npx nx g @nx/angular:component \
 
 ```bash
 npx nx g @nx/angular:component \
-  libs/shared/ui/src/lib/components/page-title \
+  libs/shared/ui/src/lib/components/page-title/page-title \
   --export
 ```
 

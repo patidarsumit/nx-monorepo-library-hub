@@ -11,6 +11,40 @@
       <a class="button-primary" href="/">Explore books</a>
       <a class="button-secondary-pill" href="/">View reports</a>
     </div>
+
+    <lib-card tone="muted">
+      <div class="smoke-grid">
+        <div class="smoke-stack">
+          <lib-badge tone="success">Shared UI smoke test</lib-badge>
+          <lib-input
+            label="Book title"
+            placeholder="Clean Code"
+            [field]="smokeForm.title"
+          />
+          <lib-search-input
+            placeholder="Search catalog"
+            [field]="smokeForm.search"
+          />
+          <lib-checkbox
+            label="Available for borrowing"
+            [field]="smokeForm.available"
+          />
+        </div>
+
+        <div class="smoke-stack">
+          <lib-stat-card
+            label="Components"
+            value="26"
+            hint="Foundation, layout, forms"
+          />
+          <div class="button-row">
+            <lib-button>Save draft</lib-button>
+            <lib-button variant="secondary">Cancel</lib-button>
+            <lib-spinner size="sm" />
+          </div>
+        </div>
+      </div>
+    </lib-card>
   </section>
 </main>
 

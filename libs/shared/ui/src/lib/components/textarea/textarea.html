@@ -1,0 +1,30 @@
+<div class="ui-control">
+  @if (label()) {
+    <label class="ui-control__label" [for]="controlId()">{{ label() }}</label>
+  }
+
+  @if (field(); as controlField) {
+    @if (!controlField().hidden()) {
+      <textarea
+        class="ui-textarea"
+        [id]="controlId()"
+        [rows]="rows()"
+        [formField]="controlField"
+        [attr.placeholder]="placeholder() || null"
+        [attr.aria-describedby]="help() ? helpId() : null"
+      ></textarea>
+    }
+  } @else {
+    <textarea
+      class="ui-textarea"
+      [id]="controlId()"
+      [rows]="rows()"
+      [attr.placeholder]="placeholder() || null"
+      [attr.aria-describedby]="help() ? helpId() : null"
+    ></textarea>
+  }
+
+  @if (help()) {
+    <p class="ui-control__help" [id]="helpId()">{{ help() }}</p>
+  }
+</div>

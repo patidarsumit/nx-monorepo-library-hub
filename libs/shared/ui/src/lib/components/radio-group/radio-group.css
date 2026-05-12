@@ -1,0 +1,29 @@
+:host {
+  display: block;
+}
+
+.ui-radio-group {
+  border: 0;
+  display: grid;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+}
+
+.ui-radio-group legend {
+  color: var(--text-primary, #1d1d1f);
+  font-size: 0.875rem;
+  font-weight: 650;
+  margin-bottom: 0.125rem;
+}
+
+.ui-radio-group label {
+  align-items: center;
+  color: var(--text-primary, #1d1d1f);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ui-radio-group input {
+  accent-color: var(--color-primary, #0071e3);
+}

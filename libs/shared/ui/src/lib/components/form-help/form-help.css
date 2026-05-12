@@ -1,0 +1,6 @@
+.ui-form-help {
+  color: var(--text-secondary, #6e6e73);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  margin: 0;
+}

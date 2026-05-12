@@ -1,0 +1,31 @@
+<div class="ui-control">
+  @if (label()) {
+    <label class="ui-control__label" [for]="controlId()">{{ label() }}</label>
+  }
+
+  @if (field(); as controlField) {
+    @if (!controlField().hidden()) {
+      <input
+        class="ui-input"
+        [id]="controlId()"
+        [type]="type()"
+        [formField]="controlField"
+        [attr.placeholder]="placeholder() || null"
+        [attr.aria-describedby]="help() ? helpId() : null"
+        [attr.aria-errormessage]="errorId()"
+      />
+    }
+  } @else {
+    <input
+      class="ui-input"
+      [id]="controlId()"
+      [type]="type()"
+      [attr.placeholder]="placeholder() || null"
+      [attr.aria-describedby]="help() ? helpId() : null"
+    />
+  }
+
+  @if (help()) {
+    <p class="ui-control__help" [id]="helpId()">{{ help() }}</p>
+  }
+</div>

@@ -1,0 +1,23 @@
+<div class="ui-control">
+  @if (label()) {
+    <label class="ui-control__label" [for]="controlId()">{{ label() }}</label>
+  }
+
+  @if (field(); as controlField) {
+    @if (!controlField().hidden()) {
+      <select class="ui-select" [id]="controlId()" [formField]="controlField">
+        <option value="">{{ placeholder() }}</option>
+        @for (option of options(); track option.value) {
+          <option [value]="option.value">{{ option.label }}</option>
+        }
+      </select>
+    }
+  } @else {
+    <select class="ui-select" [id]="controlId()">
+      <option value="">{{ placeholder() }}</option>
+      @for (option of options(); track option.value) {
+        <option [value]="option.value">{{ option.label }}</option>
+      }
+    </select>
+  }
+</div>

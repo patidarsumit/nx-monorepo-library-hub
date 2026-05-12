@@ -1,0 +1,6 @@
+.ui-form-error {
+  color: var(--color-danger, #d92d20);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  margin: 0;
+}

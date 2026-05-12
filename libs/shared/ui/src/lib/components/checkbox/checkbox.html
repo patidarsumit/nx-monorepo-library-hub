@@ -1,0 +1,28 @@
+@if (field(); as controlField) {
+  @if (!controlField().hidden()) {
+    <label class="ui-choice" [for]="controlId()">
+      <input
+        class="ui-choice__input"
+        [id]="controlId()"
+        type="checkbox"
+        [formField]="controlField"
+      />
+      <span>
+        {{ label() }}
+        @if (help()) {
+          <small>{{ help() }}</small>
+        }
+      </span>
+    </label>
+  }
+} @else {
+  <label class="ui-choice" [for]="controlId()">
+    <input class="ui-choice__input" [id]="controlId()" type="checkbox" />
+    <span>
+      {{ label() }}
+      @if (help()) {
+        <small>{{ help() }}</small>
+      }
+    </span>
+  </label>
+}

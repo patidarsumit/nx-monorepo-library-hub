@@ -1,0 +1,20 @@
+<div class="ui-field" [class.ui-field--invalid]="isInvalid()">
+  @if (label()) {
+    <label class="ui-field__label" [for]="controlId()">
+      {{ label() }}
+      @if (isRequired()) {
+        <span aria-hidden="true">*</span>
+      }
+    </label>
+  }
+
+  <ng-content />
+
+  @if (help()) {
+    <p class="ui-field__help">{{ help() }}</p>
+  }
+
+  @if (error()) {
+    <p class="ui-field__error" role="alert">{{ error() }}</p>
+  }
+</div>

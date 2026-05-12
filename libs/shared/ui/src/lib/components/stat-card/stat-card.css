@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+.ui-stat-card {
+  background: var(--surface-elevated, #ffffff);
+  border: 1px solid var(--border-subtle, #d2d2d7);
+  border-radius: var(--radius-card, 0.75rem);
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+}
+
+.ui-stat-card__label,
+.ui-stat-card__hint {
+  color: var(--text-secondary, #6e6e73);
+  margin: 0;
+}
+
+.ui-stat-card__value {
+  color: var(--text-primary, #1d1d1f);
+  font-size: 1.75rem;
+  line-height: 1.1;
+}

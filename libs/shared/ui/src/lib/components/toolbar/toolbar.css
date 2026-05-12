@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.ui-toolbar {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  min-height: 3rem;
+}
+
+.ui-toolbar--start {
+  justify-content: flex-start;
+}
+
+.ui-toolbar--end {
+  justify-content: flex-end;
+}

@@ -1,0 +1,59 @@
+:host {
+  display: inline-flex;
+}
+
+.ui-button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill, 999px);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: 650;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0 1rem;
+}
+
+.ui-button:focus-visible {
+  outline: 3px solid var(--focus-ring, rgba(0, 113, 227, 0.35));
+  outline-offset: 2px;
+}
+
+.ui-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.ui-button--sm {
+  font-size: 0.8125rem;
+  min-height: 2rem;
+  padding-inline: 0.75rem;
+}
+
+.ui-button--lg {
+  min-height: 3rem;
+  padding-inline: 1.25rem;
+}
+
+.ui-button--primary {
+  background: var(--color-primary, #0071e3);
+  color: var(--color-on-primary, #ffffff);
+}
+
+.ui-button--secondary {
+  background: var(--surface-elevated, #ffffff);
+  border-color: var(--border-subtle, #d2d2d7);
+  color: var(--text-primary, #1d1d1f);
+}
+
+.ui-button--ghost {
+  background: transparent;
+  color: var(--color-primary, #0071e3);
+}
+
+.ui-button--danger {
+  background: var(--color-danger, #d92d20);
+  color: var(--color-on-danger, #ffffff);
+}

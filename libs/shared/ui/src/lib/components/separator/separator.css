@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.ui-separator {
+  background: var(--border-subtle, #d2d2d7);
+  display: block;
+  height: 1px;
+  width: 100%;
+}
+
+.ui-separator--vertical {
+  height: 100%;
+  min-height: 1rem;
+  width: 1px;
+}

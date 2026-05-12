@@ -1,0 +1,12 @@
+<button
+  class="ui-icon-button"
+  [class.ui-icon-button--plain]="variant() === 'plain'"
+  [class.ui-icon-button--soft]="variant() === 'soft'"
+  [class.ui-icon-button--solid]="variant() === 'solid'"
+  [type]="type()"
+  [disabled]="disabled()"
+  [attr.aria-label]="label()"
+  (click)="pressed.emit($event)"
+>
+  <ng-content />
+</button>
