@@ -48,11 +48,11 @@ Library Hub solves this by providing a centralized internal platform.
 
 ## 4. Main Users
 
-| User Role | Responsibility |
-|---|---|
-| Employee | Search books, view details, request borrow, view borrowed items |
-| Librarian/Admin | Manage books, approve requests, issue/return books |
-| Manager | View reports and resource usage trends |
+| User Role       | Responsibility                                                  |
+| --------------- | --------------------------------------------------------------- |
+| Employee        | Search books, view details, request borrow, view borrowed items |
+| Librarian/Admin | Manage books, approve requests, issue/return books              |
+| Manager         | View reports and resource usage trends                          |
 
 ---
 
@@ -453,31 +453,19 @@ export const appRoutes: Routes = [
   },
   {
     path: 'books',
-    loadComponent: () =>
-      import('@library-hub/books/feature-list').then(
-        (m) => m.BookListComponent
-      ),
+    loadComponent: () => import('@library-hub/books/feature-list').then((m) => m.BookListComponent),
   },
   {
     path: 'books/:id',
-    loadComponent: () =>
-      import('@library-hub/books/feature-detail').then(
-        (m) => m.BookDetailComponent
-      ),
+    loadComponent: () => import('@library-hub/books/feature-detail').then((m) => m.BookDetailComponent),
   },
   {
     path: 'borrowing/requests',
-    loadComponent: () =>
-      import('@library-hub/borrowing/feature-requests').then(
-        (m) => m.BorrowingRequestsComponent
-      ),
+    loadComponent: () => import('@library-hub/borrowing/feature-requests').then((m) => m.BorrowingRequestsComponent),
   },
   {
     path: 'reports',
-    loadComponent: () =>
-      import('@library-hub/reports/feature-dashboard').then(
-        (m) => m.ReportsDashboardComponent
-      ),
+    loadComponent: () => import('@library-hub/reports/feature-dashboard').then((m) => m.ReportsDashboardComponent),
   },
 ];
 ```
@@ -884,7 +872,6 @@ It should demonstrate:
 - scalability
 
 This project should be useful as a learning project, architecture showcase, and interview discussion project.
-
 
 skills
 npx nx configure-ai-agents

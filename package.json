@@ -5,8 +5,13 @@
   "scripts": {
     "start": "nx serve library-portal",
     "build": "nx build library-portal",
-    "test": "nx run-many -t test --all",
-    "lint": "nx run-many -t lint --all"
+    "test": "nx run-many -t test --all --runInBand",
+    "lint": "nx run-many -t lint --all",
+    "lint:fix": "nx run-many -t lint --all --fix",
+    "format": "prettier --check \"**/*.{ts,html,css,scss,json,md,mjs,js}\"",
+    "format:fix": "prettier --write \"**/*.{ts,html,css,scss,json,md,mjs,js}\"",
+    "quality": "npm run lint && npm run format && npm run test",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -47,10 +52,12 @@
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-cypress": "^3.5.0",
+    "husky": "^9.1.7",
     "jest": "^30.0.2",
     "jest-environment-jsdom": "^30.0.2",
     "jest-preset-angular": "~16.0.0",
     "jest-util": "^30.0.2",
+    "lint-staged": "^17.0.4",
     "nx": "22.7.1",
     "prettier": "~3.6.2",
     "ts-jest": "^29.4.0",
@@ -58,5 +65,14 @@
     "tslib": "^2.3.0",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.40.0"
+  },
+  "lint-staged": {
+    "*.{ts,js,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{html,css,scss,json,md}": [
+      "prettier --write"
+    ]
   }
 }

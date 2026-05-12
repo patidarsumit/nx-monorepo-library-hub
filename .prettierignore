@@ -4,3 +4,10 @@
 /.nx/cache
 /.nx/workspace-data
 .angular
+.agents
+.codex
+.github/agents
+.github/prompts
+.github/skills
+.opencode
+node_modules
