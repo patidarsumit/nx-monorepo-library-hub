@@ -1,0 +1,28 @@
+@layer base {
+  html {
+    background: var(--lh-color-canvas);
+    color: var(--lh-color-body);
+    font-family: var(--lh-font-body);
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--lh-color-canvas);
+    color: var(--lh-color-body);
+    font-size: 17px;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--lh-color-focus-ring);
+    outline-offset: 3px;
+  }
+}

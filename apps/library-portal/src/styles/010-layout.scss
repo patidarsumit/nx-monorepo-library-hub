@@ -1,0 +1,23 @@
+@layer components {
+  .product-tile {
+    min-height: 100vh;
+    background: var(--lh-color-canvas);
+    color: var(--lh-color-ink);
+    padding: var(--lh-spacing-section) var(--lh-spacing-lg);
+  }
+
+  .product-tile--parchment {
+    background: var(--lh-color-canvas-parchment);
+  }
+
+  .product-tile--dark {
+    background: var(--lh-color-surface-tile);
+    color: var(--lh-color-body-on-dark);
+  }
+
+  @media (max-width: 640px) {
+    .product-tile {
+      padding: var(--lh-spacing-xxl) var(--lh-spacing-md);
+    }
+  }
+}

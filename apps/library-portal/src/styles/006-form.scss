@@ -1,0 +1,6 @@
+@layer components {
+  .form-field {
+    display: grid;
+    gap: var(--lh-spacing-xs);
+  }
+}

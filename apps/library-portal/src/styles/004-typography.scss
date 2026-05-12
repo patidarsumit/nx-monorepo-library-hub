@@ -1,0 +1,37 @@
+@layer components {
+  .eyebrow {
+    color: var(--lh-color-primary);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.29;
+    letter-spacing: -0.224px;
+  }
+
+  .hero-display {
+    margin: var(--lh-spacing-sm) 0 0;
+    color: inherit;
+    font-family: var(--lh-font-display);
+    font-size: clamp(2.125rem, 6vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.07;
+    letter-spacing: -0.28px;
+  }
+
+  .lead-copy {
+    margin: var(--lh-spacing-lg) auto 0;
+    max-width: 650px;
+    color: var(--lh-color-body);
+    font-size: clamp(1.3125rem, 3vw, 1.75rem);
+    font-weight: 400;
+    line-height: 1.14;
+    letter-spacing: 0.196px;
+  }
+
+  .product-tile--dark .eyebrow {
+    color: var(--lh-color-primary-on-dark);
+  }
+
+  .product-tile--dark .lead-copy {
+    color: var(--lh-color-body-muted);
+  }
+}

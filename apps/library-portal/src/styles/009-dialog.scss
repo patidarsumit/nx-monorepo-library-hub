@@ -1,0 +1,8 @@
+@layer components {
+  .dialog-surface {
+    border: 1px solid var(--lh-color-hairline);
+    border-radius: var(--lh-radius-lg);
+    background: var(--lh-color-canvas);
+    color: var(--lh-color-body);
+  }
+}

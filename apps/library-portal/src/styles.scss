@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/001-reset' as *;
+@use './styles/002-variable' as *;
+@use './styles/003-graphics' as *;
+@use './styles/004-typography' as *;
+@use './styles/005-utility' as *;
+@use './styles/006-form' as *;
+@use './styles/007-table' as *;
+@use './styles/008-grid' as *;
+@use './styles/009-dialog' as *;
+@use './styles/010-layout' as *;
+
+@import 'tailwindcss' prefix(tw);
