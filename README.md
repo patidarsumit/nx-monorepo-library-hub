@@ -1,102 +1,227 @@
-# LibraryHub
+# Library Hub
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+Library Hub is an internal library and resource management platform built with
+Nx and Angular. The project is structured as an enterprise-style Angular
+monorepo so features can grow by domain while the app shell stays thin.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+## Current Workspace
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+```text
+library-hub/
+├── apps/
+│   ├── library-portal/
+│   └── library-portal-e2e/
+├── libs/
+│   ├── shared/
+│   │   ├── ui/
+│   │   ├── auth/
+│   │   └── utils/
+│   ├── books/
+│   │   ├── feature-list/
+│   │   ├── feature-detail/
+│   │   ├── data-access/
+│   │   └── ui/
+│   ├── borrowing/
+│   │   ├── feature-requests/
+│   │   └── data-access/
+│   └── reports/
+│       ├── feature-dashboard/
+│       └── data-access/
+├── nx.json
+├── package.json
+├── tsconfig.base.json
+└── eslint.config.mjs
+```
 
-## Run tasks
+## Tech Stack
 
-To run the dev server for your app, use:
+- Angular `21`
+- Nx `22`
+- Standalone Angular components
+- Jest for unit tests
+- Cypress for e2e tests
+- ESLint with Nx module-boundary support
+- SCSS at the app level, CSS for generated components
+
+## Project Goals
+
+- Keep the application layer thin.
+- Organize business features by domain.
+- Lazy-load feature libraries from the app router.
+- Keep shared UI presentation-focused.
+- Keep API/state/data logic inside data-access libraries.
+- Add role-based access through shared auth.
+- Use Nx tags and module-boundary rules to protect architecture.
+
+## Main Domains
+
+### App: `apps/library-portal`
+
+Owns bootstrap, application configuration, global routing, and the shell
+layout. It should compose libraries rather than contain business logic.
+
+### Shared Libraries
+
+- `libs/shared/ui`: reusable layout and presentation components.
+- `libs/shared/auth`: authentication, authorization, guards, and permissions.
+- `libs/shared/utils`: reusable formatting, validation, and helper utilities.
+
+### Books Domain
+
+- `libs/books/feature-list`: book list page, search, and filtering.
+- `libs/books/feature-detail`: book detail page and borrow/reserve actions.
+- `libs/books/data-access`: book models, mock/API services, and facades.
+- `libs/books/ui`: book-specific presentational components.
+
+### Borrowing Domain
+
+- `libs/borrowing/feature-requests`: borrow request views and admin workflow.
+- `libs/borrowing/data-access`: borrow request models, services, and facades.
+
+### Reports Domain
+
+- `libs/reports/feature-dashboard`: dashboard and reporting views.
+- `libs/reports/data-access`: report metrics, summaries, and facades.
+
+## Current Status
+
+This workspace is still in the scaffold phase.
+
+- The app builds successfully.
+- Lint passes for all projects.
+- Jest unit tests pass for all test-enabled projects.
+- The route table is currently empty.
+- The app still renders the generated Nx welcome component.
+- Generated components currently render placeholder "works" templates.
+- Data-access libraries still contain generated placeholder components.
+- Nx project tags are empty, so module-boundary rules are not enforcing the
+  intended enterprise layering yet.
+
+## Local Commands
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+Run the app:
 
 ```sh
 npx nx serve library-portal
 ```
 
-To create a production bundle:
+Build the app:
 
 ```sh
 npx nx build library-portal
 ```
 
-To see all available targets to run for a project, run:
+Run all lint targets:
 
 ```sh
-npx nx show project library-portal
+npx nx run-many -t lint --all
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
+Run all unit tests:
 
 ```sh
-npx nx g @nx/angular:app demo
+npx nx run-many -t test --all --runInBand
 ```
 
-To generate a new library, use:
+Show all projects:
 
 ```sh
-npx nx g @nx/angular:lib mylib
+npx nx show projects
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
+Open the project graph:
 
 ```sh
-npx nx connect
+npx nx graph
 ```
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+## Recommended Route Plan
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+The app should lazy-load feature libraries from `apps/library-portal`.
 
-### Step 2
-
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
+```text
+/                    redirect to /books
+/books               book list
+/books/:id           book detail
+/borrowing/requests  borrow request workflow
+/reports             reports dashboard
 ```
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Architecture Rules
 
-## Install Nx Console
+Apps should compose features and stay thin.
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+Feature libraries may depend on their domain data-access libraries, their domain
+UI libraries, and shared libraries.
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Data-access libraries should own models, services, facades, API calls, mock
+data, and state helpers.
 
-## Useful links
+UI libraries should receive data through inputs, emit actions through outputs,
+and avoid direct API or routing logic.
 
-Learn more:
+Shared libraries should not depend on domain libraries.
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Recommended Nx Tags
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-# nx-monorepo-library-hub
+Add tags to each `project.json` before feature work grows:
+
+```text
+scope:app
+scope:shared
+scope:books
+scope:borrowing
+scope:reports
+
+type:app
+type:feature
+type:data-access
+type:ui
+type:util
+type:auth
+```
+
+Once tags exist, update `@nx/enforce-module-boundaries` in
+`eslint.config.mjs` so the intended dependency direction is enforced.
+
+## Suggested Development Phases
+
+### Phase 1: App Shell
+
+- Remove the Nx welcome component.
+- Render the app shell.
+- Build header, sidebar, and page title components.
+- Add primary navigation.
+- Configure lazy routes.
+
+### Phase 2: Books
+
+- Add book models and mock data.
+- Create a books facade/service.
+- Build book list and detail pages.
+- Add reusable book card UI.
+- Add search and filters.
+
+### Phase 3: Borrowing
+
+- Add borrow request models and mock data.
+- Build request list and status views.
+- Add request creation, approval, rejection, issue, and return flows.
+
+### Phase 4: Reports
+
+- Add dashboard metrics.
+- Add summary cards and simple charts.
+- Surface overdue, active, and category-level reporting.
+
+## Notes
+
+Some setup notes mention Vitest and Playwright, but the current workspace uses
+Jest and Cypress. Keep the documentation and generators aligned before adding
+more libraries or tests.
