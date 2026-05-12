@@ -884,3 +884,8 @@ It should demonstrate:
 - scalability
 
 This project should be useful as a learning project, architecture showcase, and interview discussion project.
+
+
+skills
+npx nx configure-ai-agents
+npx skills add https://github.com/angular/skills

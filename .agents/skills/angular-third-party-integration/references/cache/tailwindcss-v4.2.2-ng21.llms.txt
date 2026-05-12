@@ -1,0 +1,123 @@
+# Tailwind CSS
+
+**Version:** 4.2.2
+**Source:** https://tailwindcss.com/docs/installation/framework-guides/angular
+**Generated:** 2026-04-09
+
+## Overview
+
+Tailwind CSS v4 is a utility-first CSS framework with a CSS-first configuration model and Angular-specific installation guidance through PostCSS.
+
+**Primary Use Case:** Add utility classes to Angular templates while generating only the styles referenced in project source files.
+
+**Key Features:**
+- Angular framework guide using `@tailwindcss/postcss`
+- CSS-first setup with `@import "tailwindcss"`
+- Support for import functions like `source(...)` and `prefix(...)`
+- `@theme` for custom design tokens in CSS
+
+## Installation & Setup
+
+### Installation
+
+```bash
+npm install tailwindcss @tailwindcss/postcss postcss
+```
+
+### PostCSS configuration
+
+Create `.postcssrc.json`:
+
+```json
+{
+  "plugins": {
+    "@tailwindcss/postcss": {}
+  }
+}
+```
+
+### Angular integration
+
+Add a global CSS entry file and import Tailwind:
+
+```css
+@import "tailwindcss" prefix(tw);
+```
+
+Load the Tailwind CSS file through Angular global styles, for example with:
+
+```json
+"styles": ["src/tailwind.css", "src/styles.scss"]
+```
+
+## Core Concepts
+
+### CSS-first configuration
+
+Tailwind v4 config is expressed directly in CSS using directives like `@import`, `@theme`, and `@source`.
+
+### Prefixing
+
+Use `prefix(tw)` at import time to generate utilities with a `tw:` prefix, e.g. `tw:tw-flex`, `tw:tw-bg-brand-500`.
+
+### Design tokens
+
+Use `@theme` to define project-level custom tokens such as colors, fonts, and shadows.
+
+## API Reference
+
+### Tailwind import
+
+```css
+@import "tailwindcss" prefix(tw);
+```
+
+Loads Tailwind and applies the `tw:` variant prefix to generated utilities.
+
+### Theme tokens
+
+```css
+@theme {
+  --color-brand-500: #7c4dff;
+  --shadow-brand: 0 18px 40px rgba(124, 77, 255, 0.22);
+}
+```
+
+Creates custom utility-backed design tokens.
+
+## Common Usage Patterns
+
+### Angular template utilities
+
+Use prefixed classes directly in Angular templates:
+
+```html
+<section class="tw:tw-rounded-3xl tw:tw-bg-brand-900 tw:tw-p-6">
+  <h2 class="tw:tw-text-3xl tw:tw-font-semibold">Tailwind is active</h2>
+</section>
+```
+
+### Tailwind with SCSS-based apps
+
+Keep Tailwind in a dedicated CSS file and retain SCSS for existing component and Material theme styles.
+
+## Error Handling
+
+### Common Errors
+
+**Utilities not generated**
+- **Solution:** Ensure Tailwind is loaded through a CSS file processed by PostCSS and that Angular templates contain the prefixed classes.
+
+**Sass/Tailwind workflow friction**
+- **Solution:** Do not force Tailwind directives into the main SCSS pipeline; use a separate CSS entry file.
+
+## Best Practices
+
+- Use the official Angular + PostCSS setup for Tailwind v4.
+- Keep a dedicated prefix like `tw:` when mixing utility classes with large component frameworks.
+- Define reusable brand tokens in `@theme` instead of scattering arbitrary values across templates.
+- Load Tailwind before app SCSS when you want Material and handcrafted styles to refine the final presentation.
+
+## Required Manual Actions
+
+None.

@@ -1,0 +1,135 @@
+# Angular Material
+
+**Version:** 21.2.5
+**Source:** https://material.angular.dev/
+**Generated:** 2026-04-08
+
+## Overview
+
+Angular Material provides production-ready UI components for Angular along with the CDK and Material 3 theming support.
+
+**Primary Use Case:** Add accessible Angular UI components with Material 3 styling, Sass theme generation, and system-level design tokens.
+
+**Key Features:**
+- `ng add @angular/material` schematic for initial installation
+- Material 3 theming through `@use '@angular/material' as mat`
+- System CSS variables such as `--mat-sys-primary`, `--mat-sys-surface`, and `--mat-sys-on-surface`
+- Theme overrides through `mat.theme-overrides(...)`
+
+## Installation & Setup
+
+### Installation
+
+```bash
+ng add @angular/material
+```
+
+The schematic installs:
+- `@angular/material`
+- `@angular/cdk`
+- theme/font setup updates in global styles and `index.html`
+
+If the app uses `provideAnimationsAsync()`, ensure:
+
+```bash
+npm install @angular/animations
+```
+
+### Basic Setup
+
+```scss
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$violet-palette,
+      tertiary: mat.$rose-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+```
+
+## Core Concepts
+
+### Material 3 Theme Generation
+
+Use `mat.theme(...)` to emit Material 3 system variables for color, typography, density, shape, state, and elevation tokens.
+
+### System Variables
+
+Angular Material emits CSS custom properties like:
+- `--mat-sys-primary`
+- `--mat-sys-surface`
+- `--mat-sys-on-surface`
+- `--mat-sys-outline`
+
+These variables can be consumed directly in application styles.
+
+### Theme Overrides
+
+Use `mat.theme-overrides(...)` to override individual Material system tokens after generating a theme.
+
+## API Reference
+
+### `mat.theme(...)`
+
+```scss
+@include mat.theme((
+  color: (
+    theme-type: light | dark | color-scheme,
+    primary: <palette>,
+    tertiary: <palette>,
+  ),
+  typography: <font-config>,
+  density: 0,
+));
+```
+
+Emits Material 3 system-level CSS variables.
+
+### `mat.theme-overrides(...)`
+
+```scss
+@include mat.theme-overrides((
+  primary: #6750a4,
+  surface: #fbf8ff,
+  on-surface: #1c1a1f,
+));
+```
+
+Overrides selected Material system tokens.
+
+## Common Usage Patterns
+
+### Dedicated Light and Dark Themes
+
+Generate a light theme at the root and a dark theme on a class such as `body.theme-dark`, then toggle the class from Angular.
+
+### App-Level Design Tokens
+
+Define custom app tokens like `--app-radius-xl`, `--app-shell-max-width`, and `--app-brand-gradient` alongside Material system variables to style custom shells and layouts.
+
+## Error Handling
+
+### Common Errors
+
+**Build cannot resolve `@angular/animations/browser`**
+- **Solution:** Install `@angular/animations` with the matching Angular version when using `provideAnimationsAsync()`.
+
+**Duplicate or conflicting theme output**
+- **Solution:** Emit one light theme at the root and scope the dark theme to a dedicated selector such as `body.theme-dark`.
+
+## Best Practices
+
+- Prefer Material system variables for custom app surfaces and text colors.
+- Keep light and dark themes as separate explicit scopes when you need a manual runtime toggle.
+- Centralize app-specific design tokens in global styles so components stay simple.
+- Keep Angular animations installed when using Material animation providers.
+
+## Required Manual Actions
+
+None.
